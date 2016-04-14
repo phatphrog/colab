@@ -39,7 +39,7 @@ namespace Complete
             m_Dead = false;
 
             // Update the health slider's value and color.
-            //SetHealthUI();
+            SetHealthUI();
         }
 
 

@@ -17,7 +17,7 @@ public class RedTriangleCollider : MonoBehaviour
             {
                 if (script.m_PlayerNumber == 1)
                 {
-                    collision.gameObject.transform.localScale += new Vector3(-2F, 0, -2F);
+                    collision.gameObject.transform.localScale += new Vector3(-1.85F, 0, -1.85F);
                     scaled = true;
                     script.scaled = true;
 
@@ -39,7 +39,7 @@ public class RedTriangleCollider : MonoBehaviour
         {
             if (timer>delay && scaled)
             {
-                gobj.transform.localScale += new Vector3(2F, 0, 2F);
+                gobj.transform.localScale += new Vector3(1.85F, 0, 1.85F);
                 Complete.PlayerMovement script = gobj.GetComponent<Complete.PlayerMovement>();
                 scaled = false;
                 script.scaled = false;
