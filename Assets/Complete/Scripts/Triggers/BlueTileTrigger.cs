@@ -7,6 +7,7 @@ public class BlueTileTrigger : MonoBehaviour {
     public GameObject cube;
     public GameObject door;
     public float triggerTime = 0;
+    public float triggerHeight = 2.5F;
     float originalYValue;
 
 	void OnTriggerEnter (Collider other)
@@ -38,7 +39,7 @@ public class BlueTileTrigger : MonoBehaviour {
     {
         if (triggered)
         {
-            MoveTowardsTarget(originalYValue+2.5F);
+            MoveTowardsTarget(originalYValue + triggerHeight);
         }
         else if (!triggered)
         {
