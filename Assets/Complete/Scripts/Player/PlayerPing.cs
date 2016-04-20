@@ -6,35 +6,34 @@ namespace Complete
     public class PlayerPing : MonoBehaviour
     {
 
-        public int m_PlayerNumber = 1;  // Used to identify which avatar belongs to which player.  This is set by this avatar's manager.
-        private string m_PingButton;          // The name of the PingButton 
-        private Rigidbody m_Rigidbody;              // Reference used to move the player.
-        private ParticleSystem m_PingParticles;
+        public int playerNumber = 1;  // Used to identify which avatar belongs to which player.  This is set by this avatar's manager.
+        private string pingButton;          // The name of the PingButton 
+        private Rigidbody rigidbody;              // Reference used to move the player.
+        private ParticleSystem pingParticles;
 
         private void Awake()
         {
-            m_Rigidbody = GetComponent<Rigidbody>();
-            m_PingParticles = m_Rigidbody.GetComponentInChildren<ParticleSystem>();
+            rigidbody = GetComponent<Rigidbody>();
+            pingParticles = rigidbody.GetComponentInChildren<ParticleSystem>();
         }
 
         private void Start()
         {
             // The ping buttons on player number.
-            m_PingButton = "Ping" + m_PlayerNumber;
+            pingButton = "Ping" + playerNumber;
         }
 
         // Update is called once per frame
         private void Update()
         {
-            if(Input.GetButtonDown(m_PingButton))
+            if(Input.GetButtonDown(pingButton))
             {
-                if (m_PingParticles.isPlaying)
+                if (pingParticles.isPlaying)
                 {
-                    m_PingParticles.Stop();
-                    
+                    pingParticles.Stop();
+                    pingParticles.Clear();
                 }
-                m_PingParticles.Play();
-           
+                pingParticles.Play();
             }
         }
     }
