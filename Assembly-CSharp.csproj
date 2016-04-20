@@ -61,6 +61,7 @@
      <Compile Include="Assets\Complete\Scripts\Player\PlayerCollider.cs" />
      <Compile Include="Assets\Complete\Scripts\Player\PlayerHealth.cs" />
      <Compile Include="Assets\Complete\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Complete\Scripts\Player\PlayerPing.cs" />
      <Compile Include="Assets\Complete\Scripts\Player\PlayerShooting.cs" />
      <Compile Include="Assets\Complete\Scripts\Shell\ShellExplosion.cs" />
      <Compile Include="Assets\Complete\Scripts\Triggers\BlueTileTrigger.cs" />
