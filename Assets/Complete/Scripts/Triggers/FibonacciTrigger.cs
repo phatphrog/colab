@@ -8,7 +8,7 @@ public class FibonacciTrigger : MonoBehaviour {
         if (other.tag == "Player")
         {
             Complete.PlayerMovement script = other.GetComponent<Complete.PlayerMovement>();
-            if (script.scaled == false && script.m_PlayerNumber == 1)
+            if (script.scaled == false && script.playerNumber == 1)
             {
                 //player stuck
                 script.explode = true;
@@ -22,7 +22,7 @@ public class FibonacciTrigger : MonoBehaviour {
         if (other.tag == "Player")
         {
             Complete.PlayerMovement script = other.GetComponent<Complete.PlayerMovement>();
-            if (script.scaled == false && script.m_PlayerNumber == 1)
+            if (script.scaled == false && script.playerNumber == 1)
             {
                 //player stuck
                 script.explode = true;

@@ -8,10 +8,19 @@ public class PlayerCollider : MonoBehaviour {
         if(collision.gameObject.tag == "FibonnacciBarrier")
         {
             Complete.PlayerMovement script = GetComponent<Complete.PlayerMovement>();
-            if(script.scaled == true && script.m_PlayerNumber == 1)
+            if(script.scaled == true && script.playerNumber == 1)
             {
                 collision.collider.isTrigger = true;
             } 
+        }
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Complete.PlayerSpecial specialScript = GetComponent<Complete.PlayerSpecial>();
+            specialScript.playerCollision = true;
         }
     }
 
@@ -31,5 +40,11 @@ public class PlayerCollider : MonoBehaviour {
     void OnCollisionExit(Collision collision)
     {
         GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+        if(collision.gameObject.tag == "Player")
+        {
+            Complete.PlayerSpecial specialScript = GetComponent<Complete.PlayerSpecial>();
+            specialScript.playerCollision = false;
+        }
     }
 }

@@ -33,11 +33,11 @@ public class PurpleObjectCollider : MonoBehaviour {
             Complete.PlayerMovement script = collision.gameObject.GetComponent<Complete.PlayerMovement>();
             if (script)
             {
-                if (script.m_PlayerNumber == 2)
+                if (script.playerNumber == 2)
                 {
                     player2Collision = true;
                 }
-                else if(script.m_PlayerNumber == 1)
+                else if(script.playerNumber == 1)
                 {
                     player1Collision = true;
                 }
@@ -63,11 +63,11 @@ public class PurpleObjectCollider : MonoBehaviour {
             Complete.PlayerMovement script = collision.gameObject.GetComponent<Complete.PlayerMovement>();
             if (script)
             {
-                if (script.m_PlayerNumber == 2)
+                if (script.playerNumber == 2)
                 {
                     player2Collision = false;
                 }
-                else if (script.m_PlayerNumber == 1)
+                else if (script.playerNumber == 1)
                 {
                     player1Collision = false;
                 }

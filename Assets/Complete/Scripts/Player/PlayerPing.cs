@@ -8,13 +8,13 @@ namespace Complete
 
         public int playerNumber = 1;  // Used to identify which avatar belongs to which player.  This is set by this avatar's manager.
         private string pingButton;          // The name of the PingButton 
-        private Rigidbody rigidbody;              // Reference used to move the player.
+        private Rigidbody rigidBody;              // Reference used to move the player.
         private ParticleSystem pingParticles;
 
         private void Awake()
         {
-            rigidbody = GetComponent<Rigidbody>();
-            pingParticles = rigidbody.GetComponentInChildren<ParticleSystem>();
+            rigidBody = GetComponent<Rigidbody>();
+            pingParticles = rigidBody.GetComponentInChildren<ParticleSystem>();
         }
 
         private void Start()

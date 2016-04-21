@@ -15,7 +15,7 @@ public class RedTriangleCollider : MonoBehaviour
             Complete.PlayerMovement script = collision.gameObject.GetComponent<Complete.PlayerMovement>();
             if (script)
             {
-                if (script.m_PlayerNumber == 1)
+                if (script.playerNumber == 1)
                 {
                     collision.gameObject.transform.localScale += new Vector3(-1.85F, 0, -1.85F);
                     scaled = true;

@@ -83,7 +83,7 @@ namespace Complete
             if (m_GameWinner != null)
             {
                 // If there is a game winner, restart the level.
-                Application.LoadLevel (Application.loadedLevel);
+                //Application.LoadLevel (Application.loadedLevel);
             }
             else
             {

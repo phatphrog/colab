@@ -21,6 +21,7 @@ namespace Complete
 
         private PlayerMovement m_Movement;                        // Reference to player's movement script, used to disable and enable control.
         private PlayerPing m_Ping;                        // Reference to player's ping script, used to disable and enable control.
+        private PlayerSpecial m_Special;                   //reference to the player's special script
         private GameObject m_CanvasGameObject;                  // Used to disable the world space UI during the Starting and Ending phases of each round.
 
 
@@ -29,11 +30,13 @@ namespace Complete
             // Get references to the components.
             m_Movement = m_Instance.GetComponent<PlayerMovement> ();
             m_Ping = m_Instance.GetComponent<PlayerPing>();
+            m_Special = m_Instance.GetComponent<PlayerSpecial>();
             m_CanvasGameObject = m_Instance.GetComponentInChildren<Canvas> ().gameObject;
 
             // Set the player numbers to be consistent across the scripts.
-            m_Movement.m_PlayerNumber = m_PlayerNumber;
+            m_Movement.playerNumber = m_PlayerNumber;
             m_Ping.playerNumber = m_PlayerNumber;
+            m_Special.playerNumber = m_PlayerNumber;
 
             // Create a string using the correct color that says 'PLAYER 1' etc based on the player's color and the player's number.
             m_ColoredPlayerText = "<color=#" + ColorUtility.ToHtmlStringRGB(m_PlayerColor) + ">PLAYER " + m_PlayerNumber + "</color>";

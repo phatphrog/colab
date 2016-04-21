@@ -7,7 +7,7 @@ public class BlueObjectCollider : MonoBehaviour
         Complete.PlayerMovement script = collision.gameObject.GetComponent<Complete.PlayerMovement>();
         if (script)
         {
-            if (script.m_PlayerNumber == 2)
+            if (script.playerNumber == 2)
             {
                 GetComponent<Rigidbody>().isKinematic = false;
             }
