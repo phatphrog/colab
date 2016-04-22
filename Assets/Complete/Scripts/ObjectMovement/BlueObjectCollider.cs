@@ -2,18 +2,47 @@
 
 public class BlueObjectCollider : MonoBehaviour
 {
+
+    public bool isLarge = false;
+
     void OnCollisionEnter(Collision collision)
     {
-        Complete.PlayerMovement script = collision.gameObject.GetComponent<Complete.PlayerMovement>();
-        if (script)
+        BlueCollision(collision);
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        BlueCollision(collision);
+    }
+
+    private void BlueCollision(Collision collision)
+    {
+        Complete.PlayerSpecial specialScript = collision.gameObject.GetComponent<Complete.PlayerSpecial>();
+        if (specialScript)
         {
-            if (script.playerNumber == 2)
+            if (specialScript.playerNumber == 2)
             {
-                GetComponent<Rigidbody>().isKinematic = false;
+                if (!isLarge)
+                {
+                    GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionY;
+                }
+                else
+                {
+                    
+                    if (specialScript.specialOn)
+                    {
+                        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY;
+                    }
+                    else
+                    {
+                        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;   
+                    }
+                }
+
             }
             else
             {
-                GetComponent<Rigidbody>().isKinematic = true;
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
             }
         }
     }
