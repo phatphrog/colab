@@ -59,8 +59,6 @@ public class PurpleTileTrigger : MonoBehaviour {
 
     private void TriggerOff()
     {
-
-
         PurpleDoorMovement doorMove = (PurpleDoorMovement)door.GetComponent(typeof(PurpleDoorMovement));
         if (this.tag == "Trigger1")
         {
