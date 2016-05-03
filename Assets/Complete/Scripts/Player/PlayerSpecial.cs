@@ -50,7 +50,7 @@ namespace Complete
             //use special while button is held down
             if (Input.GetButton(specialButton))
             {
-                UseSpecial(0.85F);
+                UseSpecial(0.75F);
             }
 
             //stop special when button is let go, or if there is no special meter left

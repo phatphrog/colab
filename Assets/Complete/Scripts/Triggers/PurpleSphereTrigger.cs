@@ -4,7 +4,6 @@ using System.Collections;
 public class PurpleSphereTrigger : MonoBehaviour {
 
     public bool triggered = false;
-    public GameObject sphere;
     public GameObject door;
     float originalYValue;
 
@@ -13,7 +12,7 @@ public class PurpleSphereTrigger : MonoBehaviour {
         if (other.tag == "PurpleObject")
         {
             TriggerAnimation(true);
-            PurpleObjectMovement sphereMovement = (PurpleObjectMovement)sphere.GetComponent(typeof(PurpleObjectMovement));
+            PurpleObjectMovement sphereMovement = (PurpleObjectMovement)other.GetComponent(typeof(PurpleObjectMovement));
             DoorMovement doorMove = (DoorMovement)door.GetComponent(typeof(DoorMovement));
             doorMove.triggered = true;
 
