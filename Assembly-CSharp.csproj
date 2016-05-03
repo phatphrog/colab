@@ -52,6 +52,7 @@
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\BlueObjectMovement.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\DoorMovement.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\LiftMovement.cs" />
+     <Compile Include="Assets\Complete\Scripts\ObjectMovement\PurpleCubeCollider.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\PurpleDoorMovement.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\PurpleObjectCollider.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\PurpleObjectMovement.cs" />
