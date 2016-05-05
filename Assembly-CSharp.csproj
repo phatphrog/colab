@@ -69,6 +69,7 @@
      <Compile Include="Assets\Complete\Scripts\Triggers\BlueTileTrigger.cs" />
      <Compile Include="Assets\Complete\Scripts\Triggers\BridgeTrigger.cs" />
      <Compile Include="Assets\Complete\Scripts\Triggers\DoorTrigger.cs" />
+     <Compile Include="Assets\Complete\Scripts\Triggers\ExplodeTrigger.cs" />
      <Compile Include="Assets\Complete\Scripts\Triggers\FibonacciTrigger.cs" />
      <Compile Include="Assets\Complete\Scripts\Triggers\LiftTrigger.cs" />
      <Compile Include="Assets\Complete\Scripts\Triggers\PurpleSphereTrigger.cs" />

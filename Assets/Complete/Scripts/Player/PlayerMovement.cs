@@ -9,7 +9,7 @@ namespace Complete
         public bool scaled = false;
         public bool explode = false;
         public Vector3 currentPos;
-        private Vector3 endPos = new Vector3(-7, 0, -17);
+        public Vector3 endPos = new Vector3(-7, 0, -17);
         public float translationTime = 2F;
         public float startTime = 0;
 
@@ -57,7 +57,7 @@ namespace Complete
             verticalInputValue = Input.GetAxis (verticalAxisName);
             horizontalInputValue = Input.GetAxis (horizontalAxisName);
 
-            if(playerNumber == 1 && explode)
+            if(explode)
             {
                 verticalInputValue = 0;
                 horizontalInputValue = 0;

@@ -24,7 +24,7 @@ public class BlueObjectCollider : MonoBehaviour
             {
                 if (!isLarge)
                 {
-                    GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                    GetComponent<Rigidbody>().constraints =  RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                 }
                 else
                 {
@@ -46,16 +46,4 @@ public class BlueObjectCollider : MonoBehaviour
             }
         }
     }
-
-    /*void OnCollisionExit(Collision collision)
-    {
-        Complete.PlayerMovement script = collision.gameObject.GetComponent<Complete.PlayerMovement>();
-        if (script)
-        {
-            if (script.m_PlayerNumber == 2 || script.m_PlayerNumber == 1)
-            {
-                collision.rigidbody.velocity = Vector3.zero;
-            }
-        }
-    }*/
 }
