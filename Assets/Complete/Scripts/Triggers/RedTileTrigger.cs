@@ -7,6 +7,8 @@ public class RedTileTrigger : MonoBehaviour {
     public GameObject cube;
     public GameObject door;
     float originalYValue;
+    public AudioSource doorMoveAudio;
+    public AudioClip doorMoveClip;
 
     void OnTriggerEnter(Collider other)
     {
@@ -16,6 +18,10 @@ public class RedTileTrigger : MonoBehaviour {
             RedObjectMovement cubeMovement = (RedObjectMovement)cube.GetComponent(typeof(RedObjectMovement));
             DoorMovement doorMove = (DoorMovement)door.GetComponent(typeof(DoorMovement));
             doorMove.triggered = true;
+
+            //play the scraper sound when door opens/closes
+            doorMoveAudio.clip = doorMoveClip;
+            doorMoveAudio.Play();
 
             if (!cubeMovement.triggered)
             {

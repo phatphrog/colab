@@ -6,6 +6,8 @@ public class PurpleCubeCollider : MonoBehaviour {
     public bool isLarge = false;
     private bool player1Collision = false;
     private bool player2Collision = false;
+    public AudioSource sandMoving;
+    private bool soundPlaying = false;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -22,6 +24,8 @@ public class PurpleCubeCollider : MonoBehaviour {
         if (collision.gameObject.tag == "Player" && isLarge)
         {
             collision.rigidbody.velocity = Vector3.zero;
+            sandMoving.Stop();
+            soundPlaying = false;
 
             Complete.PlayerMovement script = collision.gameObject.GetComponent<Complete.PlayerMovement>();
             if (script)
@@ -65,6 +69,11 @@ public class PurpleCubeCollider : MonoBehaviour {
                     if (player2Collision && player1Collision)
                     {
                         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
+                        if (!soundPlaying)
+                        {
+                            sandMoving.Play();
+                            soundPlaying = true;
+                        }
                     }
                     else
                     {

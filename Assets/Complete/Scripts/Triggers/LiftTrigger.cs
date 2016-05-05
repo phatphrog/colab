@@ -7,6 +7,8 @@ public class LiftTrigger : MonoBehaviour {
     public GameObject cube;
     public float triggerHeight = 2.5F;
     float originalYValue;
+    public AudioSource doorMoveAudio;
+    public AudioClip doorMoveClip;
 
     void OnTriggerEnter(Collider other)
     {
@@ -17,9 +19,12 @@ public class LiftTrigger : MonoBehaviour {
 
             if (!cubeMove.triggered)
             {
+                //play the scraper sound when door opens/closes
+                doorMoveAudio.clip = doorMoveClip;
+                doorMoveAudio.Play();
                 cubeMove.triggered = true;
-                triggered = true;
             }
+            triggered = true;
         }
     }
 
@@ -42,6 +47,12 @@ public class LiftTrigger : MonoBehaviour {
         {
             LiftMovement cubeMove = (LiftMovement)cube.GetComponent(typeof(LiftMovement));
             TriggerAnimation(false);
+            
+            if(cubeMove.triggered)
+            {
+                doorMoveAudio.clip = doorMoveClip;
+                doorMoveAudio.Play();
+            }
             cubeMove.triggered = false;
             triggered = false;
         }

@@ -5,8 +5,10 @@ public class PurpleTileTrigger : MonoBehaviour {
 
     public bool triggered = false;
     public GameObject door;
+    public AudioSource doorMoveAudio;
+    public AudioClip doorMoveClip;
 
-	void OnTriggerEnter (Collider other)
+    void OnTriggerEnter (Collider other)
     {
         if(other.tag == "Player")
         {
@@ -15,8 +17,11 @@ public class PurpleTileTrigger : MonoBehaviour {
 
             if (!doorMove.Triggered())
             {
-                TriggerOn();
+                //play the scraper sound when door opens/closes
+                doorMoveAudio.clip = doorMoveClip;
+                doorMoveAudio.Play();
             }
+            TriggerOn();
         }
     }
 
@@ -67,6 +72,13 @@ public class PurpleTileTrigger : MonoBehaviour {
         else
         {
             doorMove.trigger2 = false;
+        }
+
+        if(!doorMove.trigger1 && !doorMove.trigger2)
+        {
+            //play the scraper sound when door opens/closes
+            doorMoveAudio.clip = doorMoveClip;
+            doorMoveAudio.Play();
         }
 
     }

@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace Complete
 {
+    [RequireComponent(typeof(AudioSource))]
     public class PlayerPing : MonoBehaviour
     {
 
@@ -10,9 +11,12 @@ namespace Complete
         private string pingButton;          // The name of the PingButton 
         private Rigidbody rigidBody;              // Reference used to move the player.
         private ParticleSystem pingParticles;
+        public AudioClip ping1Clip;
+        public AudioClip ping2Clip;
 
         private void Awake()
         {
+
             rigidBody = GetComponent<Rigidbody>();
             pingParticles = rigidBody.GetComponentInChildren<ParticleSystem>();
         }
@@ -34,6 +38,14 @@ namespace Complete
                     pingParticles.Clear();
                 }
                 pingParticles.Play();
+
+                if(playerNumber == 1)
+                {
+                    AudioSource.PlayClipAtPoint(ping1Clip, transform.position);
+                } else
+                {
+                    AudioSource.PlayClipAtPoint(ping2Clip, transform.position);
+                }
             }
         }
     }

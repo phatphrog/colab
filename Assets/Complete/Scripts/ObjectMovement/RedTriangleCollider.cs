@@ -5,6 +5,9 @@ public class RedTriangleCollider : MonoBehaviour
 {
     public bool scaled = false;
     public float scaledTime = 0;
+    public AudioSource drumRollAudio;
+    public AudioClip pop1Clip;
+    public AudioClip pop2Clip;
 
 
     void OnCollisionEnter(Collision collision)
@@ -18,10 +21,12 @@ public class RedTriangleCollider : MonoBehaviour
                 if (script.playerNumber == 1)
                 {
                     collision.gameObject.transform.localScale += new Vector3(-1.85F, 0, -1.85F);
+                    AudioSource.PlayClipAtPoint(pop1Clip, transform.position);
+                    drumRollAudio.Play();
                     scaled = true;
                     script.scaled = true;
 
-                    //wait 10 seconds then unscale
+                    //wait 11 seconds then unscale
                     if(scaledTime > 0) { 
                         StartCoroutine(EnlargeObject(collision.gameObject, scaledTime));
                     }
@@ -40,6 +45,7 @@ public class RedTriangleCollider : MonoBehaviour
             if (timer>delay && scaled)
             {
                 gobj.transform.localScale += new Vector3(1.85F, 0, 1.85F);
+                AudioSource.PlayClipAtPoint(pop1Clip, transform.position);
                 Complete.PlayerMovement script = gobj.GetComponent<Complete.PlayerMovement>();
                 scaled = false;
                 script.scaled = false;

@@ -9,8 +9,10 @@ public class BlueTileTrigger : MonoBehaviour {
     public float triggerTime = 0;
     public float triggerHeight = 2.5F;
     float originalYValue;
+    public AudioSource doorMoveAudio;
+    public AudioClip doorMoveClip;
 
-	void OnTriggerEnter (Collider other)
+    void OnTriggerEnter (Collider other)
     {
         if (other.tag == "BlueObject")
         {
@@ -18,6 +20,10 @@ public class BlueTileTrigger : MonoBehaviour {
             BlueObjectMovement cubeMovement = (BlueObjectMovement)cube.GetComponent(typeof(BlueObjectMovement));
             DoorMovement doorMove = (DoorMovement)door.GetComponent(typeof(DoorMovement));
             doorMove.triggered = true;
+
+            //play the scraper sound when door opens/closes
+            doorMoveAudio.clip = doorMoveClip;
+            doorMoveAudio.Play();
 
             if (triggerTime > 0)
             {
@@ -94,6 +100,7 @@ public class BlueTileTrigger : MonoBehaviour {
     IEnumerator CancelTrigger(GameObject gobj, float delay)
     {
         float timer = 0.0F;
+        bool doorTriggered = true;
         while (timer < delay + 1)
         {
             if (timer > delay)
@@ -101,6 +108,13 @@ public class BlueTileTrigger : MonoBehaviour {
                 DoorMovement doorMove = (DoorMovement)door.GetComponent(typeof(DoorMovement));
                 doorMove.triggered = false;
                 triggered = false;
+                if(doorTriggered != triggered)
+                {
+                    //play the scraper sound when door opens/closes
+                    doorMoveAudio.clip = doorMoveClip;
+                    doorMoveAudio.Play();
+                    doorTriggered = false;
+                }
             }
             yield return new WaitForEndOfFrame();
             timer += Time.deltaTime;

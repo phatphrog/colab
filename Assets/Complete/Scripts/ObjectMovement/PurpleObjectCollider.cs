@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class PurpleObjectCollider : MonoBehaviour {
 
     public bool player1Collision = false;
     public bool player2Collision = false;
     public bool scaled = false;
+    public AudioClip pop1Clip;
+    public AudioClip pop2Clip;
+
 
     void OnCollisionEnter(Collision collision)
     {
@@ -13,16 +17,18 @@ public class PurpleObjectCollider : MonoBehaviour {
         if (collision.gameObject.tag == "PurpleScaleDecrease" && !scaled)
         {
             transform.localScale += new Vector3(-2F, -2F, -2F);
+
+            AudioSource.PlayClipAtPoint(pop1Clip, transform.position);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            //Destroy(collision.gameObject);
             scaled = true;
             GetComponent<Rigidbody>().isKinematic = false;
         }
         else if  (collision.gameObject.tag == "PurpleScaleIncrease" && scaled)
         {
             transform.localScale += new Vector3(2F, 2F, 2F);
+
+            AudioSource.PlayClipAtPoint(pop2Clip, transform.position);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
-            //Destroy(collision.gameObject);
             scaled = false;
             GetComponent<Rigidbody>().isKinematic = true;
         }

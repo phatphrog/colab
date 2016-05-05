@@ -6,6 +6,8 @@ public class PurpleSphereTrigger : MonoBehaviour {
     public bool triggered = false;
     public GameObject door;
     float originalYValue;
+    public AudioSource doorMoveAudio;
+    public AudioClip doorMoveClip;
 
     void OnTriggerEnter(Collider other)
     {
@@ -15,6 +17,10 @@ public class PurpleSphereTrigger : MonoBehaviour {
             PurpleObjectMovement sphereMovement = (PurpleObjectMovement)other.GetComponent(typeof(PurpleObjectMovement));
             DoorMovement doorMove = (DoorMovement)door.GetComponent(typeof(DoorMovement));
             doorMove.triggered = true;
+
+            //play the scraper sound when door opens/closes
+            doorMoveAudio.clip = doorMoveClip;
+            doorMoveAudio.Play();
 
             if (!sphereMovement.triggered)
             {

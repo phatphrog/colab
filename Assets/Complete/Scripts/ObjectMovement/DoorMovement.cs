@@ -29,7 +29,7 @@ public class DoorMovement : MonoBehaviour {
     private void MoveTowardsTarget(float yValue)
     {
         //the speed, in units per second, we want to move towards the target
-        float speed = 3;
+        float speed = 4.2F;
 
         //move door down
         Vector3 currentPosition = this.transform.position;
