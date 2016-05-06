@@ -50,7 +50,7 @@ namespace Complete
             //use special while button is held down
             if (Input.GetButton(specialButton))
             {
-                UseSpecial(0.75F);
+                UseSpecial(0.6F);
             }
 
             //stop special when button is let go, or if there is no special meter left
@@ -82,7 +82,7 @@ namespace Complete
                     {
                         //increase speed
                         Complete.PlayerMovement script = GetComponent<Complete.PlayerMovement>();
-                        script.speed = 12F;
+                        script.speed = 13F;
                     }
                     else
                     {
