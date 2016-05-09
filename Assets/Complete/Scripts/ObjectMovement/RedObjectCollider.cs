@@ -4,22 +4,16 @@ using System.Collections;
 public class RedObjectCollider : MonoBehaviour {
 
     public AudioSource sandMoving;
+    private bool soundPlaying = false;
 
     void OnCollisionEnter(Collision collision)
     {
-        Complete.PlayerMovement script = collision.gameObject.GetComponent<Complete.PlayerMovement>();
-        if (script)
-        {
-            if (script.playerNumber == 1)
-            {
-                GetComponent<Rigidbody>().isKinematic = false;
-                sandMoving.Play();
-            }
-            else
-            {
-                GetComponent<Rigidbody>().isKinematic = true;
-            }
-        }
+        RedCollision(collision);
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        RedCollision(collision);
     }
 
     void OnCollisionExit(Collision collision)
@@ -29,11 +23,32 @@ public class RedObjectCollider : MonoBehaviour {
             Complete.PlayerMovement script = collision.gameObject.GetComponent<Complete.PlayerMovement>();
             if (script)
             {
-                if (script.playerNumber == 1 )
+                if (script.playerNumber == 1)
                 {
                     sandMoving.Stop();
-                    GetComponent<Rigidbody>().isKinematic = true;
+                    soundPlaying = false;
                 }
+            }
+        }
+    }
+
+    private void RedCollision(Collision collision)
+    {
+        Complete.PlayerSpecial specialScript = collision.gameObject.GetComponent<Complete.PlayerSpecial>();
+        if (specialScript)
+        {
+            if (specialScript.playerNumber == 1)
+            {
+                    GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                    if (!soundPlaying)
+                    {
+                        sandMoving.Play();
+                        soundPlaying = true;
+                    }
+            }
+            else
+            {
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
             }
         }
     }
