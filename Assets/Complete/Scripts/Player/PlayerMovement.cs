@@ -59,8 +59,6 @@ namespace Complete
 
             if(explode)
             {
-                verticalInputValue = 0;
-                horizontalInputValue = 0;
                 Vector3 center = (currentPos + endPos) * 0.5F;
                 center -= new Vector3(0, 1, 0);
                 Vector3 riseRelCenter = currentPos - center;

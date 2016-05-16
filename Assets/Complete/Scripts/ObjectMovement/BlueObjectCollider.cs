@@ -55,7 +55,7 @@ public class BlueObjectCollider : MonoBehaviour
 
                     if (specialScript.specialOn)
                     {
-                        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY;
+                        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
                         if (!soundPlaying)
                         {
                             sandMoving.Play();

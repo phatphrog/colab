@@ -29,7 +29,7 @@ namespace Complete
             } 
             else
             {
-                specialColour = new Color(0F,0.903F,1F,0.284F);
+                specialColour = new Color(0F,0.903F,1F,0.354F);
             }
 
             fillImage.color = specialColour;
