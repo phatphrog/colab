@@ -48,6 +48,7 @@
      <Compile Include="Assets\Complete\Scripts\Camera\CameraControl.cs" />
      <Compile Include="Assets\Complete\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Complete\Scripts\Managers\PlayerManager.cs" />
+     <Compile Include="Assets\Complete\Scripts\ObjectMovement\BlueCubeCollider.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\BlueObjectCollider.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\BlueObjectMovement.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\Bob.cs" />
@@ -57,6 +58,7 @@
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\PurpleDoorMovement.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\PurpleObjectCollider.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\PurpleObjectMovement.cs" />
+     <Compile Include="Assets\Complete\Scripts\ObjectMovement\RedCubeCollider.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\RedObjectCollider.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\RedObjectMovement.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\RedTriangleCollider.cs" />

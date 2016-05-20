@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BlueObjectCollider : MonoBehaviour {
+public class RedCubeCollider : MonoBehaviour {
 
     public AudioSource sandMoving;
     private bool soundPlaying = false;
 
     void OnCollisionEnter(Collision collision)
     {
-        BlueCollision(collision);
+        RedCollision(collision);
     }
 
     void OnCollisionStay(Collision collision)
     {
-        BlueCollision(collision);
+        RedCollision(collision);
     }
 
     void OnCollisionExit(Collision collision)
@@ -23,7 +23,7 @@ public class BlueObjectCollider : MonoBehaviour {
             Complete.PlayerMovement script = collision.gameObject.GetComponent<Complete.PlayerMovement>();
             if (script)
             {
-                if (script.playerNumber == 2)
+                if (script.playerNumber == 1)
                 {
                     sandMoving.Stop();
                     soundPlaying = false;
@@ -32,14 +32,14 @@ public class BlueObjectCollider : MonoBehaviour {
         }
     }
 
-    private void BlueCollision(Collision collision)
+    private void RedCollision(Collision collision)
     {
         Complete.PlayerSpecial specialScript = collision.gameObject.GetComponent<Complete.PlayerSpecial>();
         if (specialScript)
         {
-            if (specialScript.playerNumber == 2)
+            if (specialScript.playerNumber == 1)
             {
-                    GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+                    GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                     if (!soundPlaying)
                     {
                         sandMoving.Play();
@@ -48,7 +48,7 @@ public class BlueObjectCollider : MonoBehaviour {
             }
             else
             {
-                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY;
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
             }
         }
     }

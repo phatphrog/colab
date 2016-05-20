@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RedObjectCollider : MonoBehaviour {
+public class RedObjectCollider : MonoBehaviour
+{
 
     public AudioSource sandMoving;
     private bool soundPlaying = false;
@@ -23,7 +24,7 @@ public class RedObjectCollider : MonoBehaviour {
             Complete.PlayerMovement script = collision.gameObject.GetComponent<Complete.PlayerMovement>();
             if (script)
             {
-                if (script.playerNumber == 1)
+                if (script.playerNumber == 2)
                 {
                     sandMoving.Stop();
                     soundPlaying = false;
@@ -39,16 +40,16 @@ public class RedObjectCollider : MonoBehaviour {
         {
             if (specialScript.playerNumber == 1)
             {
-                    GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-                    if (!soundPlaying)
-                    {
-                        sandMoving.Play();
-                        soundPlaying = true;
-                    }
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+                if (!soundPlaying)
+                {
+                    sandMoving.Play();
+                    soundPlaying = true;
+                }
             }
             else
             {
-                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY;
             }
         }
     }
