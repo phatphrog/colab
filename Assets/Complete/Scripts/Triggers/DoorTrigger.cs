@@ -6,6 +6,8 @@ public class DoorTrigger : MonoBehaviour
 
     public bool triggered = false;
     public GameObject door;
+    public AudioSource doorMoveAudio;
+    public AudioClip doorMoveClip;
 
     void OnTriggerEnter(Collider other)
     {
@@ -18,6 +20,9 @@ public class DoorTrigger : MonoBehaviour
             {
                 doorMove.triggered = true;
                 triggered = true;
+                //play the scraper sound when door opens/closes
+                doorMoveAudio.clip = doorMoveClip;
+                doorMoveAudio.Play();
             }
         }
     }
@@ -43,6 +48,9 @@ public class DoorTrigger : MonoBehaviour
             TriggerAnimation(false);
             doorMove.triggered = false;
             triggered = false;
+            //play the scraper sound when door opens/closes
+            doorMoveAudio.clip = doorMoveClip;
+            doorMoveAudio.Play();
         }
     }
 
