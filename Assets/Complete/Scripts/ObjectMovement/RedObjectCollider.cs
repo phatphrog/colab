@@ -6,6 +6,7 @@ public class RedObjectCollider : MonoBehaviour
 
     public AudioSource sandMoving;
     private bool soundPlaying = false;
+    public bool triggered = false;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -38,7 +39,7 @@ public class RedObjectCollider : MonoBehaviour
         Complete.PlayerSpecial specialScript = collision.gameObject.GetComponent<Complete.PlayerSpecial>();
         if (specialScript)
         {
-            if (specialScript.playerNumber == 1)
+            if (specialScript.playerNumber == 1 && !triggered)
             {
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
                 if (!soundPlaying)

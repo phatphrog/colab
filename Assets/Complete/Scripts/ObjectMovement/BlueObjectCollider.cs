@@ -5,6 +5,7 @@ public class BlueObjectCollider : MonoBehaviour {
 
     public AudioSource sandMoving;
     private bool soundPlaying = false;
+    public bool triggered = false;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -37,9 +38,9 @@ public class BlueObjectCollider : MonoBehaviour {
         Complete.PlayerSpecial specialScript = collision.gameObject.GetComponent<Complete.PlayerSpecial>();
         if (specialScript)
         {
-            if (specialScript.playerNumber == 2)
+            if (specialScript.playerNumber == 2 && !triggered)
             {
-                    GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
                     if (!soundPlaying)
                     {
                         sandMoving.Play();
