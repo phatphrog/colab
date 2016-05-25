@@ -3,7 +3,9 @@ using System.Collections;
 
 public class BlueYinYangTrigger : MonoBehaviour {
 
-    public GameObject sphere;
+    public GameObject redSphere;
+    public GameObject blueSphere;
+    public GameObject redYinYang;
     public AudioSource doorMoveAudio;
     public AudioClip doorMoveClip;
     public bool triggered = false;
@@ -20,8 +22,11 @@ public class BlueYinYangTrigger : MonoBehaviour {
         if (other.tag == "RedYinYang")
         {
             TriggerAnimation(true);
-            RedObjectMovement sphereMovement = (RedObjectMovement)sphere.GetComponent(typeof(RedObjectMovement));
-            
+            RedObjectMovement sphereMovement = (RedObjectMovement)redSphere.GetComponent(typeof(RedObjectMovement));
+            BlueObjectMovement blueSphereMovement = (BlueObjectMovement)blueSphere.GetComponent(typeof(BlueObjectMovement));
+            RedYinYangTrigger redYinYangTrigger = (RedYinYangTrigger)redYinYang.GetComponent(typeof(RedYinYangTrigger));
+            RedObjectCollider redYinYangCollider = (RedObjectCollider)other.GetComponent(typeof(RedObjectCollider));
+
             //play the scraper sound when door opens/closes
             doorMoveAudio.clip = doorMoveClip;
             doorMoveAudio.Play();
@@ -30,6 +35,17 @@ public class BlueYinYangTrigger : MonoBehaviour {
             {
                 sphereMovement.triggered = true;
             }
+
+            if (!blueSphereMovement.triggered)
+            {
+                blueSphereMovement.triggered = true;
+            }
+
+            if (!redYinYangTrigger.triggered)
+            {
+                redYinYangTrigger.triggered = true;
+                redYinYangCollider.triggered = true;
+            }
         }
     }
 	
@@ -37,7 +53,7 @@ public class BlueYinYangTrigger : MonoBehaviour {
 	void Update () {
         if (triggered)
         {
-            MoveTowardsTarget(originalYValue - 1.88F);
+            MoveTowardsTarget(originalYValue - 1.82F);
         }
         else if (!triggered)
         {

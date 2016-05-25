@@ -10,12 +10,18 @@ public class RedObjectCollider : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        RedCollision(collision);
+        if (collision.gameObject.tag == "Player")
+        {
+            RedCollision(collision);
+        }
     }
 
     void OnCollisionStay(Collision collision)
     {
-        RedCollision(collision);
+        if (collision.gameObject.tag == "Player")
+        {
+            RedCollision(collision);
+        }
     }
 
     void OnCollisionExit(Collision collision)
@@ -41,7 +47,7 @@ public class RedObjectCollider : MonoBehaviour
         {
             if (specialScript.playerNumber == 1 && !triggered)
             {
-                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                 if (!soundPlaying)
                 {
                     sandMoving.Play();

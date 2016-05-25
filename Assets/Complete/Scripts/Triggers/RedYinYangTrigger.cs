@@ -15,7 +15,8 @@ public class RedYinYangTrigger : MonoBehaviour {
         originalYValue = (this.transform.position.y);
     }
 
-    void OnTriggerEnter(Collider other)
+    //for tnow this is handled by the blue half of the yinyang
+    /*void OnTriggerEnter(Collider other)
     {
         if (other.tag == "BlueYinYang")
         {
@@ -31,13 +32,13 @@ public class RedYinYangTrigger : MonoBehaviour {
                 sphereMovement.triggered = true;
             }
         }
-    }
+    }*/
 	
 	// Update is called once per frame
 	void Update () {
         if (triggered)
         {
-            MoveTowardsTarget(originalYValue - 1.88F);
+            MoveTowardsTarget(originalYValue - 1.82F);
         }
         else if (!triggered)
         {

@@ -9,12 +9,18 @@ public class BlueObjectCollider : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        BlueCollision(collision);
+        if (collision.gameObject.tag == "Player")
+        {
+            BlueCollision(collision);
+        }
     }
 
     void OnCollisionStay(Collision collision)
     {
-        BlueCollision(collision);
+        if (collision.gameObject.tag == "Player")
+        {
+            BlueCollision(collision);
+        }
     }
 
     void OnCollisionExit(Collision collision)
@@ -40,7 +46,7 @@ public class BlueObjectCollider : MonoBehaviour {
         {
             if (specialScript.playerNumber == 2 && !triggered)
             {
-                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                     if (!soundPlaying)
                     {
                         sandMoving.Play();
