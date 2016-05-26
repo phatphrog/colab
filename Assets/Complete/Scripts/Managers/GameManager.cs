@@ -21,6 +21,8 @@ namespace Complete
         private PlayerManager m_RoundWinner;          // Reference to the winner of the current round.  Used to make an announcement of who won.
         private PlayerManager m_GameWinner;           // Reference to the winner of the game.  Used to make an announcement of who won.
 
+        private int playerTriggered = 0;
+
 
         private void Start()
         {
@@ -162,12 +164,25 @@ namespace Complete
             // Start the count of players left at zero.
             int numPlayersLeft = 0;
 
+            playerTriggered = 0;
+
             // Go through all the players...
             for (int i = 0; i < m_Players.Length; i++)
             {
+                Complete.PlayerMovement playerMovement = m_Players[i].m_Movement;
+                if (playerMovement.triggered)
+                {
+                    Debug.Log(playerMovement.triggered);
+                    playerTriggered++;
+                }
                 // ... and if they are active, increment the counter.
                 if (m_Players[i].m_Instance.activeSelf)
                     numPlayersLeft++;
+            }
+
+            if (playerTriggered == 2)
+            {
+                m_MessageText.text = "The End";
             }
 
             // If there are one or fewer players remaining return true, otherwise return false.

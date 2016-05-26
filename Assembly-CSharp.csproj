@@ -75,6 +75,7 @@
      <Compile Include="Assets\Complete\Scripts\Triggers\ExplodeTrigger.cs" />
      <Compile Include="Assets\Complete\Scripts\Triggers\FibonacciTrigger.cs" />
      <Compile Include="Assets\Complete\Scripts\Triggers\LiftTrigger.cs" />
+     <Compile Include="Assets\Complete\Scripts\Triggers\PlayerYinYangTrigger.cs" />
      <Compile Include="Assets\Complete\Scripts\Triggers\PurpleSphereTrigger.cs" />
      <Compile Include="Assets\Complete\Scripts\Triggers\PurpleTileTrigger.cs" />
      <Compile Include="Assets\Complete\Scripts\Triggers\RedTileTrigger.cs" />
@@ -99,6 +100,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldDX11.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ContrastComposite.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
+     <None Include="Assets\Models\CrystalPack\Shaders\S_Crystal.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />

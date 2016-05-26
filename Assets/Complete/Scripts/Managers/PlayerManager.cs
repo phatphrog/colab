@@ -19,7 +19,7 @@ namespace Complete
         [HideInInspector] public int m_Wins;                    // The number of wins this player has so far.
         
 
-        private PlayerMovement m_Movement;                        // Reference to player's movement script, used to disable and enable control.
+        public PlayerMovement m_Movement;                        // Reference to player's movement script, used to disable and enable control.
         private PlayerPing m_Ping;                        // Reference to player's ping script, used to disable and enable control.
         private PlayerSpecial m_Special;                   //reference to the player's special script
         private GameObject m_CanvasGameObject;                  // Used to disable the world space UI during the Starting and Ending phases of each round.
