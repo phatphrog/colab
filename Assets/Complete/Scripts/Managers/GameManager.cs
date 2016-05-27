@@ -172,7 +172,6 @@ namespace Complete
                 Complete.PlayerMovement playerMovement = m_Players[i].m_Movement;
                 if (playerMovement.triggered)
                 {
-                    Debug.Log(playerMovement.triggered);
                     playerTriggered++;
                 }
                 // ... and if they are active, increment the counter.

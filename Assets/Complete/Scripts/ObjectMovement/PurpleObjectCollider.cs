@@ -26,6 +26,7 @@ public class PurpleObjectCollider : MonoBehaviour {
         else if  (collision.gameObject.tag == "PurpleScaleIncrease" && scaled)
         {
             transform.localScale += new Vector3(2F, 2F, 2F);
+            transform.localPosition += new Vector3(0, 1F, 0);
             AudioSource.PlayClipAtPoint(pop2Clip, transform.position);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
             scaled = false;
