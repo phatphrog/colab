@@ -98,7 +98,7 @@ namespace Complete
                 float fracComplete = (Time.time - startTime) / translationTime;
                 transform.position = Vector3.Slerp(riseRelCenter, setRelCenter, fracComplete);
                 transform.position += center;
-                if(transform.position.x == endPos.x && transform.position.z == endPos.z)
+                if(transform.position == endPos)
                 {
                     explode = false;
                 }
