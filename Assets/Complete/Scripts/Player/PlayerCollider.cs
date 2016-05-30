@@ -29,7 +29,7 @@ public class PlayerCollider : MonoBehaviour {
         if (collision.gameObject.tag == "FibonnacciBarrier")
         {
             Complete.PlayerMovement script = GetComponent<Complete.PlayerMovement>();
-            if (!script.scaled)
+            if (!script.scaled && script.playerNumber == 1)
             {
                 collision.GetComponent<Collider>().isTrigger = false;
             }

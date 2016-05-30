@@ -39,8 +39,8 @@ public class RedCubeCollider : MonoBehaviour {
         {
             if (specialScript.playerNumber == 1)
             {
-                    GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-                    if (!soundPlaying)
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
+                if (!soundPlaying)
                     {
                         sandMoving.Play();
                         soundPlaying = true;
@@ -48,7 +48,7 @@ public class RedCubeCollider : MonoBehaviour {
             }
             else
             {
-                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
             }
         }
     }

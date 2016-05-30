@@ -7,6 +7,7 @@ public class BlueCubeCollider : MonoBehaviour
     public bool isLarge = false;
     public AudioSource sandMoving;
     private bool soundPlaying = false;
+    public bool triggered = false;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -39,11 +40,11 @@ public class BlueCubeCollider : MonoBehaviour
         Complete.PlayerSpecial specialScript = collision.gameObject.GetComponent<Complete.PlayerSpecial>();
         if (specialScript)
         {
-            if (specialScript.playerNumber == 2)
+            if (specialScript.playerNumber == 2 && !triggered)
             {
                 if (!isLarge)
                 {
-                    GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                    GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
                     if(!soundPlaying)
                     {
                         sandMoving.Play();
@@ -74,7 +75,7 @@ public class BlueCubeCollider : MonoBehaviour
             }
             else
             {
-                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
             }
         }
     }
