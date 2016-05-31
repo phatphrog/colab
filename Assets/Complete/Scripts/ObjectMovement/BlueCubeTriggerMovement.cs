@@ -35,7 +35,7 @@ public class BlueCubeTriggerMovement : MonoBehaviour
     private void MoveTowardsTarget(float xValue)
     {
         //the speed, in units per second, we want to move towards the target
-        float speed = 1.4F;
+        float speed = 1.3F;
 
         //move door down
         Vector3 currentPosition = this.transform.position;

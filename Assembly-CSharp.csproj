@@ -49,6 +49,7 @@
      <Compile Include="Assets\Complete\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Complete\Scripts\Managers\PlayerManager.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\BlueCubeCollider.cs" />
+     <Compile Include="Assets\Complete\Scripts\ObjectMovement\BlueCubeTriggerMovement.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\BlueObjectCollider.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\BlueObjectMovement.cs" />
      <Compile Include="Assets\Complete\Scripts\ObjectMovement\Bob.cs" />
@@ -80,6 +81,7 @@
      <Compile Include="Assets\Complete\Scripts\Triggers\PurpleTileTrigger.cs" />
      <Compile Include="Assets\Complete\Scripts\Triggers\RedTileTrigger.cs" />
      <Compile Include="Assets\Complete\Scripts\Triggers\RedYinYangTrigger.cs" />
+     <Compile Include="Assets\Complete\Scripts\Triggers\UnexplodeTrigger.cs" />
      <Compile Include="Assets\Complete\Scripts\UI\UIDirectionControl.cs" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
