@@ -107,7 +107,7 @@ namespace Complete
 
             // Increment the round number and display text showing the players what round it is.
             m_RoundNumber++;
-            m_MessageText.text = "Loading...";
+           // m_MessageText.text = "Loading...";
 
             // Wait for the specified length of time until yielding control back to the game loop.
             yield return m_StartWait;
