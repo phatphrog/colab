@@ -96,7 +96,6 @@ public class LoadingScreenManager : MonoBehaviour
     void ShowLoadingVisuals()
     {
         loadingIcon.gameObject.SetActive(true);
-
         loadingText.text = "LOADING...";
     }
 
