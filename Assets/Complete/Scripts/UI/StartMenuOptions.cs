@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class MenuOptions : MonoBehaviour {
+public class StartMenuOptions : MonoBehaviour {
 
     public Canvas quitMenu;
     public Button startButton;
@@ -17,7 +17,6 @@ public class MenuOptions : MonoBehaviour {
         startButton = startButton.GetComponent<Button>();
         exitButton = exitButton.GetComponent<Button>();
         startMenu = this.GetComponent<Canvas>();
-
         quitMenu.enabled = false;
 
 	}
@@ -41,7 +40,14 @@ public class MenuOptions : MonoBehaviour {
 
     public void StartLevel()
     {
-        SceneManager.LoadScene("CompleteMainScene");
+        int num = 2;
+        if (num < 0 || num >= SceneManager.sceneCountInBuildSettings)
+        {
+            Debug.LogWarning("Can't load scene num" + num + " , SceneManager only has " + SceneManager.sceneCountInBuildSettings + "scenes in BuildSettings!");
+            return;
+        }
+
+        LoadingScreenManager.LoadScene(num);
     }
 
     public void ExitGame()

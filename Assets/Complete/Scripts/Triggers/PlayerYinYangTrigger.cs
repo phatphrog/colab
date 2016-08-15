@@ -22,7 +22,6 @@ public class PlayerYinYangTrigger : MonoBehaviour {
         originalYValue = (transform.position.y);
     }
 
-    // Use this for initialization
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "PlayerYinYangTrigger")
