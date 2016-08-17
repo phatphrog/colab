@@ -26,7 +26,7 @@ public class StartMenuOptions : MonoBehaviour {
         quitMenu.enabled = true;
         startButton.enabled = false;
         exitButton.enabled = false;
-        startMenu.enabled = false;
+        //startMenu.enabled = false;
 
     }
 
@@ -35,7 +35,7 @@ public class StartMenuOptions : MonoBehaviour {
         quitMenu.enabled = false;
         startButton.enabled = true;
         exitButton.enabled = true;
-        startMenu.enabled = true;
+        //startMenu.enabled = true;
     }
 
     public void StartLevel()
