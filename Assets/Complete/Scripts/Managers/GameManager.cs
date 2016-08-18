@@ -13,6 +13,7 @@ namespace Complete
         public Text m_MessageText;                  // Reference to the overlay Text to display winning text, etc.
         public GameObject m_PlayerPrefab;             // Reference to the prefab the players will control.
         public PlayerManager[] m_Players;               // A collection of managers for enabling and disabling different aspects of the tanks.
+        public PauseMenuOptions pauseMenu;
 
         
         private int m_RoundNumber;                  // Which round the game is currently on.
@@ -22,6 +23,7 @@ namespace Complete
         private PlayerManager m_GameWinner;           // Reference to the winner of the game.  Used to make an announcement of who won.
 
         private int playerTriggered = 0;
+        private bool movementDisabled = false;
 
 
         private void Start()
@@ -125,6 +127,19 @@ namespace Complete
             // While there is not one player left...
             while (!OnePlayerLeft())
             {
+                if (pauseMenu.isPaused && !movementDisabled)
+                {
+                    DisablePlayerControl();
+                } else if (!pauseMenu.isPaused && movementDisabled)
+                {
+                    EnablePlayerControl();
+                }
+
+                if (pauseMenu.restart)
+                {
+                    pauseMenu.restart = false;
+                    ResetAllPlayers();
+                }
                 // ... return on the next frame.
                 yield return null;
             }
@@ -261,10 +276,12 @@ namespace Complete
 
         private void EnablePlayerControl()
         {
+            
             for (int i = 0; i < m_Players.Length; i++)
             {
                 m_Players[i].EnableControl();
             }
+            movementDisabled = false;
         }
 
 
@@ -274,6 +291,7 @@ namespace Complete
             {
                 m_Players[i].DisableControl();
             }
+            movementDisabled = true;
         }
     }
 }

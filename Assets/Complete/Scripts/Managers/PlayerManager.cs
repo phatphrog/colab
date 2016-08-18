@@ -58,7 +58,7 @@ namespace Complete
         {
             m_Movement.enabled = false;
 
-            m_CanvasGameObject.SetActive (false);
+            //m_CanvasGameObject.SetActive (false);
         }
 
 
@@ -67,7 +67,7 @@ namespace Complete
         {
             m_Movement.enabled = true;
 
-            m_CanvasGameObject.SetActive (true);
+            //m_CanvasGameObject.SetActive (true);
         }
 
 
