@@ -135,11 +135,6 @@ namespace Complete
                     EnablePlayerControl();
                 }
 
-                if (pauseMenu.restart)
-                {
-                    pauseMenu.restart = false;
-                    ResetAllPlayers();
-                }
                 // ... return on the next frame.
                 yield return null;
             }
