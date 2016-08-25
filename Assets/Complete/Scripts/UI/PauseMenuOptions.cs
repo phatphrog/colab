@@ -13,6 +13,9 @@ public class PauseMenuOptions : MonoBehaviour
     public Button resumeButton;
     public Button exitButton;
     public Canvas pauseMenu;
+    public Canvas controllerImage;
+    public Canvas keyboardText;
+
     private string pauseButton;
     public bool isPaused = false;
     public bool restart = false;
@@ -26,10 +29,15 @@ public class PauseMenuOptions : MonoBehaviour
         controlsButton = controlsButton.GetComponent<Button>();
         exitButton = exitButton.GetComponent<Button>();
         pauseMenu = this.GetComponent<Canvas>();
+        controllerImage = controllerImage.GetComponent<Canvas>();
+        keyboardText = keyboardText.GetComponent<Canvas>();
+        keyboardText.enabled = false;
+        controllerImage.enabled = false;
         quitMenu.enabled = false;
         controlsMenu.enabled = false;
         pauseMenu.enabled = false;
         restartMenu.enabled = false;
+        keyboardText.enabled = false;
         pauseButton = "Cancel";
     }
 
@@ -79,6 +87,8 @@ public class PauseMenuOptions : MonoBehaviour
         exitButton.enabled = true;
         pauseMenu.enabled = true;
         controlsButton.enabled = true;
+        controllerImage.enabled = false;
+        keyboardText.enabled = false;
     }
 
     public void ControlsPress()
@@ -88,6 +98,7 @@ public class PauseMenuOptions : MonoBehaviour
         exitButton.enabled = false;
         pauseMenu.enabled = false;
         controlsButton.enabled = false;
+        controllerImage.enabled = true;
     }
 
     public void ResumePress()
@@ -125,7 +136,6 @@ public class PauseMenuOptions : MonoBehaviour
         controlsButton.enabled = false;
         restartMenu.enabled = false;
         isPaused = false;
-        //restart = true;
         RestartLevel(2);
        
     }
@@ -139,6 +149,18 @@ public class PauseMenuOptions : MonoBehaviour
         }
 
         LoadingScreenManager.LoadScene(num);
+    }
+
+    public void GamePadPress()
+    {
+        controllerImage.enabled = true;
+        keyboardText.enabled = false;
+    }
+
+    public void KeyboardPress()
+    {
+        controllerImage.enabled = false;
+        keyboardText.enabled = true;
     }
 
     public void ExitGame()
