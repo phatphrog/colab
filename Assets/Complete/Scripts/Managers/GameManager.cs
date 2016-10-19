@@ -191,7 +191,7 @@ namespace Complete
 
             if (playerTriggered == 2)
             {
-                m_MessageText.text = "The End";
+                m_MessageText.text = "THE END";
             }
 
             // If there are one or fewer players remaining return true, otherwise return false.
